@@ -1,5 +1,3 @@
-<snippet>
-	<content><![CDATA[
 #define N 200000
 ll fact[1 + N];
 
@@ -50,10 +48,3 @@ ll ncr(int n, int r) {
     ll denom = (fact[n - r] * fact[r]) % mod;
     return (num * modInverse(denom)) % mod;
 }
-
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>ncr</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.c++</scope>
-</snippet>

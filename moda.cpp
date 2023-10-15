@@ -96,3 +96,4 @@ void self_mul(int& a,int b){
 
 void self_muli(int& a,int b){
     a = muli(a,b);
+}

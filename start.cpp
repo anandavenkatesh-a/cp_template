@@ -1,5 +1,3 @@
-<snippet>
-	<content><![CDATA[
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -79,10 +77,4 @@ signed main() {
     fprintf(stderr, "\n>> Runtime: %.10fs\n", (double) (clock() - tStart) / CLOCKS_PER_SEC); // this line gives your code runtime
 #endif
 
-}    
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>includet</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.c++</scope>
-</snippet>
+}   

@@ -1,5 +1,3 @@
-<snippet>
-	<content><![CDATA[
 int sieve[((int)1e7)+1];
 
 void fill_sieve(int n){
@@ -14,9 +12,3 @@ void fill_sieve(int n){
        }
     }   
 }
-]]></content>
-	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>mpfsv</tabTrigger>
-	<!-- Optional: Set a scope to limit where the snippet will trigger -->
-	<scope>source.c++</scope>
-</snippet>
