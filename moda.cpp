@@ -1,4 +1,4 @@
-ll modInverse(ll A)
+ll modInverse(ll A,int mod = mod)
 {
     ll M = mod;
     ll m0 = M;
@@ -29,7 +29,7 @@ ll modInverse(ll A)
     return x;
 }
 
-long long binpow(long long a, long long b) {
+long long binpow(long long a, long long b,int mod = mod) {
     a %= mod;
     long long res = 1;
     while (b > 0) {
@@ -41,7 +41,7 @@ long long binpow(long long a, long long b) {
     return res;
 }
 
-int add(int a,int b){
+int add(int a,int b,int mod = mod){
 	if(a < 0)
 	   a += mod;
 	if(b < 0)
@@ -51,7 +51,7 @@ int add(int a,int b){
 	return (a+b)%mod;
 }
 
-int sub(int a,int b){
+int sub(int a,int b,int mod = mod){
 	if(a < 0)
 	   a += mod;
 	if(b < 0)
@@ -61,7 +61,7 @@ int sub(int a,int b){
 	return (a - b + mod)%mod; 
 }
 
-int mul(int a,int b){
+int mul(int a,int b,int mod = mod){
 	if(a < 0)
 	   a += mod;
 	if(b < 0)
@@ -71,7 +71,7 @@ int mul(int a,int b){
 	return (a*b)%mod;
 }
 
-int muli(int a,int b){
+int muli(int a,int b,int mod = mod){
 	if(a < 0)
 	   a += mod;
 	if(b < 0)
@@ -82,18 +82,18 @@ int muli(int a,int b){
 	return (a*b)%mod;
 }
 
-void self_add(int& a,int b){
-    a = add(a,b);
+void add_self(int& a,int b,int mod = mod){
+    a = add(a,b,mod);
 }
 
-void self_sub(int& a,int b){
-	a = sub(a,b);
+void sub_self(int& a,int b,int mod = mod){
+	a = sub(a,b,mod);
 }
 
-void self_mul(int& a,int b){
-	a = mul(a,b);
+void mul_self(int& a,int b,int mod = mod){
+	a = mul(a,b,mod);
 }
 
-void self_muli(int& a,int b){
-    a = muli(a,b);
+void muli_self(int& a,int b,int mod = mod){
+    a = muli(a,b,mod);
 }

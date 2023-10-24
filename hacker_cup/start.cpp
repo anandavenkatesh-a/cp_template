@@ -58,23 +58,29 @@ void solve(int test) {
 	
 }
 
-signed main() {
-
-#ifdef ONLINEJUDGE
-    clock_t tStart = clock();
-    freopen("input.txt", "r", stdin); //can need to change file . this one for taking input
-    freopen("output.txt", "w", stdout); // this one for output
-#endif
-    ios_base :: sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    
+void main_() {
     int t; cin >> t;
     for(int i = 1;i <= t;++i){
     	solve(i);
     }
+}
 
-#ifdef ONLINEJUDGE
-    fprintf(stderr, "\n>> Runtime: %.10fs\n", (double) (clock() - tStart) / CLOCKS_PER_SEC); // this line gives your code runtime
-#endif
+static void run_with_stack_size(void (*func)(void), size_t stsize) {
+    char *stack, *send;
+    stack = (char *)malloc(stsize);
+    send = stack + stsize - 16;
+    send = (char *)((uintptr_t)send / 16 * 16);
+    asm volatile(
+        "mov %%rsp, (%0)\n"
+        "mov %0, %%rsp\n"
+        :
+        : "r"(send));
+    func();
+    asm volatile("mov (%0), %%rsp\n" : : "r"(send));
+    free(stack);
+}
 
+signed main() {
+    run_with_stack_size(main_, 1024 * 1024 * 1024); // run with a 1 GiB stack
+    return 0;
+}
