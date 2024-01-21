@@ -35,6 +35,11 @@ typedef queue<int> que;
 typedef stack<int> stk;
 typedef long double ld;
 
+int msb(int n){
+    int k = __builtin_clzll(n);
+    return 63 - k;	
+}
+
 ll mod = (1e9)+7;
 
 //understand the question properly(what we need to find)

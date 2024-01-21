@@ -16,22 +16,51 @@ int sum(int l,int r,int i = 0,int j = n-1,int k = 0){
 	int mid = (i+j) >> 1;
 	return sum(l,r,i,mid,2*k+1)^sum(l,r,mid+1,j,2*k+2);
 }
- 
-//range update 
+
+//point query with lazy propagation
+int get(int index,int i = 0,int j = n-1,int k = 0){
+	if(i == j){
+	    return seg[k];	
+	}
+	
+	int mid = (i+j) >> 1;
+	
+	if(seg[k]){
+	    seg[2*k+1] = seg[k];
+    	seg[2*k+2] = seg[k];	
+    	seg[k] = 0;
+	}
+	
+	if(index > mid){
+		return get(index,mid+1,j,2*k+2);
+	}
+	else{
+		return get(index,i,mid,2*k+1);
+	}
+}
+
+//range update with lazy propagation
 void update(int l,int r,int u,int i = 0,int j = n-1,int k = 0){
-	if((l <= i)&&(j <= r)){
-		seg[k] += u;
+	if((l > j) || (r < i)){
 		return;
 	}
 	
-	if((l > j)||(r < i)){
+	if((l <= i)&&(r >= j)){
+		seg[k] = u;
 		return;
 	}
 	
 	int mid = (i+j) >> 1;
+	if(seg[k]){
+	    seg[2*k+1] = seg[k];
+    	seg[2*k+2] = seg[k];
+    	seg[k] = 0;	
+	}
+	
 	update(l,r,u,i,mid,2*k+1);
 	update(l,r,u,mid+1,j,2*k+2);
- 
+}
+
 //bianry search with segments 
 int get(int val,int i = 0,int j = n-1,int k = 0){
 	if(seg[k] < val){

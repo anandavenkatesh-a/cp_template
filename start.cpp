@@ -34,6 +34,12 @@ typedef vector<bool> vb;
 typedef queue<int> que;
 typedef stack<int> stk;
 typedef long double ld;
+typedef vector<pii> vp;
+
+int msb(int n){
+    int k = __builtin_clzll(n);
+    return 63 - k;	
+}
 
 ll mod = (1e9)+7;
 
