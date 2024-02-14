@@ -43,3 +43,4 @@ int pattern_match(string& arr,string& pattern){
     if(j == m)
         ++cnt;
     return cnt;    
+}

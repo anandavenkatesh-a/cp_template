@@ -3,10 +3,24 @@ class Segtree{
 	int n;
 	vi seg;
 	
-	void init(int n){
-		this -> n = n;
-		seg.resize(4*n,0);
-	}
+	void build(vi& arr,int i,int j,int k){
+        if(i == j){
+            seg[k] = arr[i];
+            return;
+        }
+
+        int mid = (i+j) >> 1;
+        build(arr,i,mid,2*k+1);
+        build(arr,mid+1,j,2*k+2);
+
+        seg[k] = (seg[2*k+1]&seg[2*k+2]);
+    }
+
+    void init(int n,vi& arr){
+        this -> n = n;
+        seg.resize(4*n,0);
+        build(arr,0,n-1,0); 
+    }
 	
 	void _add(int l,int x,int i,int j,int k){
 		if(l > j || l < i){
