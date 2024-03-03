@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 using namespace std;
-
+using namespace __gnu_pbds;
+ 
+template<class T> using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+ 
 #define int             long long
 #define inf LLONG_MAX
 #define ninf LLONG_MIN
@@ -35,14 +40,14 @@ typedef queue<int> que;
 typedef stack<int> stk;
 typedef long double ld;
 typedef vector<pii> vp;
-
+ 
 int msb(int n){
     int k = __builtin_clzll(n);
-    return 63 - k;	
+    return 63 - k;  
 }
-
+ 
 ll mod = (1e9)+7;
-
+ 
 //understand the question properly(what we need to find)
 //workout sample inputs with hand
 //think along with constarints
@@ -58,13 +63,15 @@ ll mod = (1e9)+7;
 //thinking in reverse direction might work
 //with binary search think in reverse direction
 //either sorting or multiset and multimap when it comes sorting
-
+//if sample explaination is not given then it may be possible to misinterpret the question
+//think wether u are over complicating question ?
+ 
 void solve() {
-
+   
 }
-
+ 
 signed main() {
-
+ 
 #ifdef ONLINEJUDGE
     clock_t tStart = clock();
     freopen("input.txt", "r", stdin); //can need to change file . this one for taking input
@@ -75,13 +82,13 @@ signed main() {
     cout.tie(0);
     
     int t = 1;
-	cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
-
+ 
 #ifdef ONLINEJUDGE
     fprintf(stderr, "\n>> Runtime: %.10fs\n", (double) (clock() - tStart) / CLOCKS_PER_SEC); // this line gives your code runtime
 #endif
-
-}   
+ 
+}
