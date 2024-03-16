@@ -1,3 +1,17 @@
+/*
+    works with int == long long
+*/
+
+#define N 200000
+ll fact[1 + N];
+
+void fill_fact() {
+    fact[0] = 1;
+    for (int i = 1; i <= N; ++i) {
+        fact[i] = (i * fact[i - 1]) % mod;
+    }
+}
+ 
 ll modInverse(ll A,int mod = mod)
 {
     ll M = mod;
@@ -30,6 +44,10 @@ ll modInverse(ll A,int mod = mod)
 }
 
 long long binpow(long long a, long long b,int mod = mod) {
+    if(a == 0 && b == 0){
+        return 1;
+    }
+
     a %= mod;
     long long res = 1;
     while (b > 0) {
@@ -42,44 +60,43 @@ long long binpow(long long a, long long b,int mod = mod) {
 }
 
 int add(int a,int b,int mod = mod){
-	if(a < 0)
-	   a += mod;
-	if(b < 0)
-	   b += mod;   
-	a %= mod;
-	b %= mod;
-	return (a+b)%mod;
+    if(a < 0)
+       a += mod;
+    if(b < 0)
+       b += mod;   
+    a %= mod;
+    b %= mod;
+    return (a+b)%mod;
 }
 
 int sub(int a,int b,int mod = mod){
-	if(a < 0)
-	   a += mod;
-	if(b < 0)
-	   b += mod;   
-	a %= mod;
-	b %= mod;
-	return (a - b + mod)%mod; 
+    if(a < 0)
+       a += mod;
+    if(b < 0)
+       b += mod;   
+    a %= mod;
+    b %= mod;
+    return (a - b + mod)%mod; 
 }
 
 int mul(int a,int b,int mod = mod){
-	if(a < 0)
-	   a += mod;
-	if(b < 0)
-	   b += mod;   
-	a %= mod;
-	b %= mod;
-	return (a*b)%mod;
+    if(a < 0)
+       a += mod;
+    if(b < 0)
+       b += mod;   
+    a %= mod;
+    b %= mod;
+    return (a*b)%mod;
 }
 
 int muli(int a,int b,int mod = mod){
-	if(a < 0)
-	   a += mod;
-	if(b < 0)
-	   b += mod;   
-	a %= mod;
-	b %= mod;
-	b = modInverse(b)%mod;
-	return (a*b)%mod;
+    if(a < 0)
+       a += mod;
+    if(b < 0)
+       b += mod;   
+    a %= mod;
+    b = modInverse(b)%mod;
+    return (a*b)%mod;
 }
 
 void add_self(int& a,int b,int mod = mod){
@@ -87,13 +104,23 @@ void add_self(int& a,int b,int mod = mod){
 }
 
 void sub_self(int& a,int b,int mod = mod){
-	a = sub(a,b,mod);
+    a = sub(a,b,mod);
 }
 
 void mul_self(int& a,int b,int mod = mod){
-	a = mul(a,b,mod);
+    a = mul(a,b,mod);
 }
 
 void muli_self(int& a,int b,int mod = mod){
     a = muli(a,b,mod);
+}
+
+ll ncr(int n, int r) {
+    if (r > n) {
+        return 0;
+    }
+
+    ll num = fact[n];
+    ll denom = (fact[n - r] * fact[r]);
+    return (num * modInverse(denom)) % mod;
 }

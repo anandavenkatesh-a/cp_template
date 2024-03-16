@@ -17,12 +17,26 @@ class Segtree{
    public:  
     int n;
     vector<Node> seg;
+    
+    void build(int i,int j,int k,vi& arr){
+        if(i == j){
+            seg[k] = Node(arr[i]);
+            return;
+        }
  
-    void init(int n){
+        int mid = (i+j) >> 1;
+        build(i,mid,2*k+1,arr);
+        build(mid+1,j,2*k+2,arr);
+ 
+        seg[k] = seg[2*k+1] + seg[2*k+2];
+    }
+
+    void init(int n,vi& arr){
         this -> n = n;
         seg.resize(8*n,Node(0));
+        build(0,n-1,0,arr);
     }
-    
+
     void prop(int i,int j,int k){
         if(seg[k].prop == 0){
             return;

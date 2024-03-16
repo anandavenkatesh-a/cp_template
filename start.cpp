@@ -48,24 +48,6 @@ int msb(int n){
  
 ll mod = (1e9)+7;
  
-//understand the question properly(what we need to find)
-//workout sample inputs with hand
-//think along with constarints
-//is ok to brute force or simulate
-//write generalized statements
-//understand i/o properly
-//dont debug the code too much rewrite
-//there should some progess with every 5 mins
-//properly write the math equations in paper
-//if recursive appraoch is not working then try iterative approach
-//use calculater not google search
-//every problems may be different but not difficult
-//thinking in reverse direction might work
-//with binary search think in reverse direction
-//either sorting or multiset and multimap when it comes sorting
-//if sample explaination is not given then it may be possible to misinterpret the question
-//think wether u are over complicating question ?
- 
 void solve() {
    
 }
