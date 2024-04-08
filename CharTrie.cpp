@@ -1,3 +1,15 @@
+class TrieNode {
+public:
+    TrieNode *next[26];
+    bool is_word;
+    int cnt;
+    TrieNode(bool b = false) {
+        memset(next, 0, sizeof(next));
+        is_word = b;    
+        cnt=0;
+    }
+};
+
 class Trie {
 public:
     TrieNode *root;
