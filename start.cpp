@@ -1,6 +1,11 @@
+/*
+    Compete against yourself
+    Author - comp21823
+*/
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+// #include <dbg.h>
 using namespace std;
 using namespace __gnu_pbds;
  
