@@ -1,5 +1,5 @@
 /*
-    bma
+    In the name of GOD
 */
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
