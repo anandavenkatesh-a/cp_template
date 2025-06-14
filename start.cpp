@@ -1,6 +1,5 @@
 /*
-    Compete against yourself
-    Author - comp21823
+    bma
 */
 #include<bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
