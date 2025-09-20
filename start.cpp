@@ -44,7 +44,11 @@ typedef queue<int> que;
 typedef stack<int> stk;
 typedef long double ld;
 typedef vector<pii> vp;
- 
+
+// for random number generation rnd()
+// #include <random>
+// mt19937_64 rng(58);
+
 int msb(int n){
     int k = __builtin_clzll(n);
     return 63 - k;  
@@ -78,3 +82,4 @@ signed main() {
 #endif
  
 }
+
