@@ -1,16 +1,22 @@
 class Node{
    public:
+   static const int null = inf;
    int val;    
    int prop; 
    
-   Node(int v){
-      val = v;
-      prop = 0;
+   Node(){
+      val = null;
+      prop = null;
    }
  
-    Node operator+(const Node& b){
-        return Node(val + b.val); 
-    }  
+   Node(int v){
+      val = v;
+      prop = null;
+   } 
+ 
+   Node operator+(const Node& b){
+      return Node(min(val,b.val)); 
+   }  
 };
  
 class Segtree{
@@ -30,22 +36,22 @@ class Segtree{
  
         seg[k] = seg[2*k+1] + seg[2*k+2];
     }
-
+ 
     void init(int n,vi& arr){
         this -> n = n;
-        seg.resize(8*n,Node(0));
+        seg.resize(8*n,Node());
         build(0,n-1,0,arr);
     }
-
+ 
     void prop(int i,int j,int k){
-        if(seg[k].prop == 0){
+        if(seg[k].prop == Node :: null){
             return;
         }
         
         seg[k].val = seg[k].prop*(j-i+1);
         seg[2*k+1].prop = seg[k].prop;
         seg[2*k+2].prop = seg[k].prop;
-        seg[k].prop = 0;
+        seg[k].prop = Node :: null;
     }
  
     void _update(int l,int r,int x,int i,int j,int k){
@@ -74,7 +80,7 @@ class Segtree{
     Node _sum(int l,int r,int i,int j,int k){
         prop(i,j,k);
         if(l > j || r < i){
-            return Node(0);
+            return Node();
         }
         
         if(l <= i && j <= r){
@@ -87,7 +93,7 @@ class Segtree{
     
     int sum(int l,int r){
         if(l > r){
-            return 0;
+            return Node :: null;
         }
         return _sum(l,r,0,n-1,0).val;
     }
