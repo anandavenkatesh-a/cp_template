@@ -55,7 +55,18 @@ int msb(int n){
 }
  
 ll mod = (1e9)+7;
- 
+
+void print_mask(int mask){
+    for(int b = 0;b < 10;++b){
+        if(mask&(1 << b)) cout << 1;
+        else cout << 0;
+    }
+}
+
+bool is_set(int mask, int b){
+    return (mask&(1 << b)) > 0; 
+}
+
 void solve() {
    
 }
@@ -82,4 +93,5 @@ signed main() {
 #endif
  
 }
+
 
