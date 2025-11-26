@@ -67,6 +67,38 @@ bool is_set(int mask, int b){
     return (mask&(1 << b)) > 0; 
 }
 
+std::vector<int> generateRandomVector(int n, int min_val = 0, int max_val = 100) {
+    std::vector<int> vec(n);
+    
+    // Create random number generator
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(min_val, max_val);
+    
+    // Fill vector with random integers
+    for (int i = 0; i < n; i++) {
+        vec[i] = dist(gen);
+    }
+    
+    return vec;
+}
+
+std::vector<int> generateRandomPermutation(int n) {
+    std::vector<int> perm(n);
+    
+    // Fill with values 0, 1, 2, ..., n-1
+    for (int i = 0; i < n; i++) {
+        perm[i] = i;
+    }
+    
+    // Shuffle to create random permutation
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::shuffle(perm.begin(), perm.end(), gen);
+    
+    return perm;
+}
+
 void solve() {
    
 }
@@ -93,5 +125,6 @@ signed main() {
 #endif
  
 }
+
 
 
