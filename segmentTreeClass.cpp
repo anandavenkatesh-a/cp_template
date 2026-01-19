@@ -37,7 +37,7 @@ class Segtree{
         seg[k] = seg[2*k+1] + seg[2*k+2];
     }
  
-    void init(int n,vi& arr){
+    Segtree(int n,vi& arr){
         this -> n = n;
         seg.resize(8*n,Node());
         build(0,n-1,0,arr);
@@ -98,3 +98,4 @@ class Segtree{
         return _sum(l,r,0,n-1,0).val;
     }
 };
+
